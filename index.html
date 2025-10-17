@@ -10,87 +10,76 @@
             box-sizing: border-box;
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        @keyframes sparkle {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.2); }
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .float { animation: float 3s ease-in-out infinite; }
-        .sparkle { animation: sparkle 2s ease-in-out infinite; }
-        .fade-in-up { animation: fadeInUp 1s ease-out forwards; }
-        
         .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #dda0dd, #98fb98);
         }
         
         .card-shadow {
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2), 0 0 50px rgba(255,255,255,0.1);
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
     </style>
 </head>
 <body class="gradient-bg min-h-full">
-    <main class="min-h-full flex items-center justify-center p-4">
-        <div class="max-w-2xl w-full text-center">
-            <!-- Floating Balloons -->
-            <div class="absolute top-10 left-10 float">
-                <div class="text-6xl">🎈</div>
-            </div>
-            <div class="absolute top-20 right-16 float" style="animation-delay: 1s;">
-                <div class="text-5xl">🎈</div>
-            </div>
-            <div class="absolute top-32 left-1/4 float" style="animation-delay: 2s;">
-                <div class="text-4xl">🎈</div>
-            </div>
-            
-            <!-- Sparkles -->
-            <div class="absolute top-16 right-1/4 sparkle">
-                <div class="text-3xl">✨</div>
-            </div>
-            <div class="absolute top-40 left-1/3 sparkle" style="animation-delay: 1.5s;">
-                <div class="text-2xl">✨</div>
-            </div>
-            
+    <!-- Static Decorations -->
+    <div class="fixed inset-0 pointer-events-none z-10">
+        <!-- Balloons -->
+        <div class="absolute top-10 left-10 text-6xl">🎈</div>
+        <div class="absolute top-20 right-16 text-5xl">🎈</div>
+        <div class="absolute bottom-20 right-10 text-6xl">🎈</div>
+        
+        <!-- Stars -->
+        <div class="absolute top-16 right-1/4 text-3xl">⭐</div>
+        <div class="absolute bottom-40 right-1/3 text-3xl">🌟</div>
+        
+        <!-- Hearts -->
+        <div class="absolute top-1/4 left-1/2 text-3xl">💖</div>
+    </div>
+
+    <main class="min-h-full flex items-center justify-center p-4 relative z-20">
+        <div class="max-w-4xl w-full text-center">
             <!-- Main Card -->
-            <div class="bg-white rounded-3xl p-8 md:p-12 card-shadow fade-in-up">
-                <!-- Cake Icon -->
-                <div class="text-8xl mb-6 float">🎂</div>
+            <div class="glass-effect rounded-3xl p-8 md:p-16 card-shadow">
+                <!-- Cake -->
+                <div class="text-9xl mb-8">🎂</div>
                 
                 <!-- Main Title -->
-                <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
-                    สุขสันต์วันเกิด! 🎉
+                <h1 class="text-5xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 mb-6">
+                    สุขสันต์วันเกิด! 
                 </h1>
                 
+                <!-- Emoji Line -->
+                <div class="text-6xl mb-8">
+                    <span class="inline-block">🎉</span>
+                    <span class="inline-block">🎊</span>
+                    <span class="inline-block">🥳</span>
+                    <span class="inline-block">🎈</span>
+                    <span class="inline-block">🎁</span>
+                </div>
+                
                 <!-- Subtitle -->
-                <p class="text-xl md:text-2xl text-gray-600 mb-8">
+                <p class="text-2xl md:text-4xl text-gray-700 mb-12">
                     ขอให้มีความสุขมากๆ ในวันพิเศษนี้
                 </p>
                 
-                <!-- Decorative Elements -->
-                <div class="flex justify-center items-center space-x-4 mb-8">
-                    <span class="text-3xl sparkle">🌟</span>
-                    <span class="text-2xl">💝</span>
-                    <span class="text-3xl sparkle" style="animation-delay: 1s;">🌟</span>
+                <!-- Decorative Stars -->
+                <div class="flex justify-center items-center space-x-6 mb-12">
+                    <span class="text-5xl">🌟</span>
+                    <span class="text-4xl">💎</span>
+                    <span class="text-5xl">🌟</span>
+                    <span class="text-4xl">👑</span>
+                    <span class="text-5xl">🌟</span>
                 </div>
                 
-                <!-- Message -->
-                <div class="bg-pink-50 rounded-2xl p-6 mb-8">
-                    <p class="text-lg text-gray-700 leading-relaxed">
+                <!-- Special Message -->
+                <div class="bg-gradient-to-r from-pink-100 via-purple-100 to-blue-100 rounded-3xl p-8 mb-12 glass-effect">
+                    <div class="text-6xl mb-4">💌</div>
+                    <p class="text-xl md:text-2xl text-gray-800 leading-relaxed font-medium">
                         แม้ว่าเราจะไม่ได้อยู่ด้วยกันแล้ว<br>
                         แต่ฉันก็ยังหวังดีกับเธอเสมอ<br>
                         ขอให้วันเกิดปีนี้เป็นจุดเริ่มต้นที่ดี<br>
@@ -98,41 +87,159 @@
                     </p>
                 </div>
                 
-                <!-- Wishes -->
-                <div class="grid md:grid-cols-3 gap-4 mb-8">
-                    <div class="bg-yellow-100 rounded-xl p-4">
-                        <div class="text-3xl mb-2">🌈</div>
-                        <p class="text-sm font-medium text-gray-700">ขอให้มีความสุข</p>
+                <!-- Wishes Grid -->
+                <div class="grid md:grid-cols-4 gap-6 mb-12">
+                    <div class="bg-gradient-to-br from-yellow-200 to-orange-200 rounded-2xl p-6 glass-effect">
+                        <div class="text-5xl mb-3">🌈</div>
+                        <p class="text-lg font-bold text-gray-800">ขอให้มีความสุข</p>
                     </div>
-                    <div class="bg-green-100 rounded-xl p-4">
-                        <div class="text-3xl mb-2">🍀</div>
-                        <p class="text-sm font-medium text-gray-700">ขอให้โชคดี</p>
+                    <div class="bg-gradient-to-br from-green-200 to-emerald-200 rounded-2xl p-6 glass-effect">
+                        <div class="text-5xl mb-3">🍀</div>
+                        <p class="text-lg font-bold text-gray-800">ขอให้โชคดี</p>
                     </div>
-                    <div class="bg-blue-100 rounded-xl p-4">
-                        <div class="text-3xl mb-2">💪</div>
-                        <p class="text-sm font-medium text-gray-700">ขอให้แข็งแรง</p>
+                    <div class="bg-gradient-to-br from-blue-200 to-cyan-200 rounded-2xl p-6 glass-effect">
+                        <div class="text-5xl mb-3">💪</div>
+                        <p class="text-lg font-bold text-gray-800">ขอให้แข็งแรง</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-200 to-pink-200 rounded-2xl p-6 glass-effect">
+                        <div class="text-5xl mb-3">🌟</div>
+                        <p class="text-lg font-bold text-gray-800">ขอให้เจริญรุ่งเรือง</p>
                     </div>
                 </div>
                 
-                <!-- Interactive Button -->
-                <button id="celebrateBtn" class="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
-                    🎊 ฉลองกันเถอะ! 🎊
+                <!-- Simple Button -->
+                <button id="celebrateBtn" class="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 hover:from-pink-600 hover:via-purple-600 hover:to-blue-600 text-white font-bold py-6 px-12 rounded-full text-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl relative z-30 cursor-pointer">
+                    🎊✨ ฉลองกันเถอะ ✨🎊
                 </button>
                 
                 <!-- Hidden celebration message -->
-                <div id="celebration" class="hidden mt-6 p-4 bg-gradient-to-r from-yellow-200 to-pink-200 rounded-2xl">
-                    <div class="text-4xl mb-2">🎉🎈🎂🎁🎉</div>
-                    <p class="text-lg font-bold text-gray-800">Happy Birthday! 🥳</p>
-                    <p class="text-gray-700">ขอให้ปีใหม่นี้เต็มไปด้วยรอยยิ้มและความสุข!</p>
+                <div id="celebration" class="hidden mt-8 p-8 bg-gradient-to-r from-yellow-200 via-pink-200 to-purple-200 rounded-3xl glass-effect">
+                    <div class="text-6xl mb-4">
+                        <span class="inline-block">🎉</span>
+                        <span class="inline-block">🎈</span>
+                        <span class="inline-block">🎂</span>
+                        <span class="inline-block">🎁</span>
+                        <span class="inline-block">🎉</span>
+                    </div>
+                    <p class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600 mb-4">Happy Birthday!</p>
+                    <p class="text-xl text-gray-800">ขอให้ปีใหม่นี้เต็มไปด้วยรอยยิ้มและความสุข!</p>
+                    <div class="text-4xl mt-4">🌟💖🌟</div>
                 </div>
             </div>
             
             <!-- Footer -->
-            <p class="text-white text-sm mt-6 opacity-80">
-                ด้วยความปรารถนาดี 💕
+            <p class="text-white text-lg mt-8 opacity-90">
+                ด้วยความปรารถนาดี 💕✨
             </p>
         </div>
     </main>
+
+    <!-- Additional Note Page -->
+    <div id="secretPage" class="hidden fixed inset-0 z-50 gradient-bg">
+        <div class="min-h-full flex items-center justify-center p-4">
+            <div class="max-w-3xl w-full text-center">
+                <!-- Additional Note Card -->
+                <div class="glass-effect rounded-3xl p-12 card-shadow">
+                    <div class="text-8xl mb-8">💌</div>
+                    <h2 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600 mb-8">
+                        โน๊ตลับ จะอ่านหรือไม่ก็ได้
+                    </h2>
+                    
+                    <!-- Special Message Card -->
+                    <div class="bg-gradient-to-r from-pink-100 via-yellow-100 to-purple-100 rounded-3xl p-10 mb-8 glass-effect">
+                        <p class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600 mb-6">
+                            ข้อความนี้ฝากถึง you
+                        </p>
+                        <p class="text-xl text-gray-800 leading-relaxed mb-6">
+                            ที่ผ่านมาพยามได้เก่งมาก
+                            ทางนี้เฝ้ามองตลอดถึงจะไม่ได้บอกไว้
+                            เริ่มต้นกับคนดีๆ วันนี้ที่เคยบอกมีแฟนไม่ถึงวันเกิดสักที นี่เป็นรอบที่สองแล้วนะ
+                            คนนี้ดูแลเอาใจใส่มากแล้ว เห็นมั้ยที่บอกว่าไม่มีใครดีเท่าผมอีกแล้ว ยังด่วนสรุปไป
+                            อย่าลืมกินข้าว,ดูแลตัวเอง,และยิ้มมากๆนะ
+                        </p>
+                        <div class="text-5xl">
+                            🎂✨🎉✨🎈
+                        </div>
+                    </div>
+                    
+                    <!-- Wishes Section -->
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-gradient-to-br from-pink-200 to-rose-200 rounded-2xl p-6 glass-effect">
+                            <div class="text-4xl mb-3">💖</div>
+                            <p class="text-lg font-bold text-gray-800">ขอให้รักตัวเอง</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-yellow-200 to-amber-200 rounded-2xl p-6 glass-effect">
+                            <div class="text-4xl mb-3">☀️</div>
+                            <p class="text-lg font-bold text-gray-800">ขอให้สดใสเสมอ</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-purple-200 to-violet-200 rounded-2xl p-6 glass-effect">
+                            <div class="text-4xl mb-3">🌟</div>
+                            <p class="text-lg font-bold text-gray-800">ขอให้เป็นดาวดวงใหม่</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Final Message -->
+                    <div class="bg-gradient-to-r from-blue-100 to-cyan-100 rounded-3xl p-8 glass-effect">
+                        <div class="text-5xl mb-4">🎁</div>
+                        <p class="text-2xl font-bold text-gray-800 mb-4">
+                            ของขวัญพิเศษจากใจ
+                        </p>
+                        <p class="text-lg text-gray-700">
+                            คือความปรารถนาดีที่ส่งไปให้เธอ<br>
+                            ขอให้ทุกวันของเธอเป็นวันที่ดี<br>
+                            และมีแต่สิ่งดีๆ เข้ามาในชีวิต 💕
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Note Modal -->
+    <div id="noteModal" class="hidden fixed inset-0 z-60 bg-black bg-opacity-50 backdrop-blur-sm">
+        <div class="min-h-full flex items-center justify-center p-4">
+            <div class="max-w-lg w-full">
+                <!-- Note Paper -->
+                <div id="notePaper" class="bg-yellow-100 rounded-lg shadow-2xl transform rotate-2 transition-all duration-500" style="background-image: linear-gradient(to bottom, transparent 0%, transparent 24px, #e5e7eb 25px, #e5e7eb 26px, transparent 27px); line-height: 26px;">
+                    <div class="p-8">
+                        <!-- Note Header -->
+                        <div class="text-center mb-6">
+                            <div class="text-4xl mb-2">💌</div>
+                            <div class="w-16 h-1 bg-red-400 mx-auto rounded"></div>
+                        </div>
+                        
+                        <!-- Note Content -->
+                        <div class="text-gray-800 text-lg leading-relaxed font-handwriting">
+                            <p class="mb-4 text-center font-bold text-xl">
+                                ขอบคุณสำหรับที่ผ่านมา
+                            </p>
+                            <p class="mb-4">
+                                แม้ว่าเราจะไม่ได้เดินทางต่อไปด้วยกัน<br>
+                                แต่ความทรงจำดีๆ ที่เราสร้างขึ้นมา<br>
+                                จะอยู่ในใจฉันตลอดไป
+                            </p>
+                            <p class="mb-6">
+                                ขอบคุณที่เคยทำให้ฉันยิ้ม<br>
+                                ขอบคุณที่เคยอยู่เคียงข้างกัน<br>
+                                และขอบคุณสำหรับทุกช่วงเวลา ❤️
+                            </p>
+                            <p class="text-right text-sm">
+                                ด้วยรัก<br>
+                                💕
+                            </p>
+                        </div>
+                        
+                        <!-- Close Button -->
+                        <div class="text-center mt-6">
+                            <button id="closeNote" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full text-sm transition-colors duration-300">
+                                ปิดโน๊ต 💕
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         document.getElementById('celebrateBtn').addEventListener('click', function(e) {
@@ -140,103 +247,36 @@
             const celebration = document.getElementById('celebration');
             const button = this;
             
-            // Hide button and show celebration
-            button.style.transform = 'scale(0)';
-            button.style.opacity = '0';
+            // Hide button
+            button.style.display = 'none';
+            celebration.classList.remove('hidden');
             
+            // Show next page after celebration
             setTimeout(() => {
-                button.style.display = 'none';
-                celebration.classList.remove('hidden');
-                celebration.style.animation = 'fadeInUp 0.8s ease-out forwards';
-                
-                // Add some confetti effect
-                createConfetti();
-            }, 300);
+                showSecretPage();
+            }, 3000);
         });
         
-        function createConfetti() {
-            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7'];
-            const confettiCount = 50;
+        // Show secret page function
+        function showSecretPage() {
+            const mainPage = document.querySelector('main');
+            const secretPage = document.getElementById('secretPage');
             
-            for (let i = 0; i < confettiCount; i++) {
-                setTimeout(() => {
-                    const confetti = document.createElement('div');
-                    confetti.style.position = 'fixed';
-                    confetti.style.left = Math.random() * 100 + '%';
-                    confetti.style.top = '-10px';
-                    confetti.style.width = '10px';
-                    confetti.style.height = '10px';
-                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                    confetti.style.borderRadius = '50%';
-                    confetti.style.pointerEvents = 'none';
-                    confetti.style.zIndex = '1000';
-                    confetti.style.animation = `fall ${2 + Math.random() * 3}s linear forwards`;
-                    
-                    document.body.appendChild(confetti);
-                    
-                    setTimeout(() => {
-                        confetti.remove();
-                    }, 5000);
-                }, i * 100);
-            }
-            
-            // Add letter animation
-            createLetterAnimation();
+            mainPage.style.display = 'none';
+            secretPage.classList.remove('hidden');
         }
         
-        function createLetterAnimation() {
-            const letterCount = 8;
-            const letters = ['💌', '💝', '💕', '💖', '💗', '💘', '💙', '💜'];
-            
-            for (let i = 0; i < letterCount; i++) {
-                setTimeout(() => {
-                    const letter = document.createElement('div');
-                    letter.innerHTML = letters[Math.floor(Math.random() * letters.length)];
-                    letter.style.position = 'fixed';
-                    letter.style.left = Math.random() * 80 + 10 + '%';
-                    letter.style.top = '100vh';
-                    letter.style.fontSize = '40px';
-                    letter.style.pointerEvents = 'none';
-                    letter.style.zIndex = '1001';
-                    letter.style.animation = `letterFloat ${3 + Math.random() * 2}s ease-out forwards`;
-                    
-                    document.body.appendChild(letter);
-                    
-                    setTimeout(() => {
-                        letter.remove();
-                    }, 6000);
-                }, i * 200);
-            }
-        }
+
         
-        // Add fall animation for confetti and letter float animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fall {
-                to {
-                    transform: translateY(100vh) rotate(360deg);
-                    opacity: 0;
-                }
+        // Close note handler
+        document.addEventListener('click', function(e) {
+            if (e.target.id === 'closeNote') {
+                e.preventDefault();
+                const noteModal = document.getElementById('noteModal');
+                
+                noteModal.classList.add('hidden');
             }
-            
-            @keyframes letterFloat {
-                0% {
-                    transform: translateY(0) rotate(0deg);
-                    opacity: 0;
-                }
-                20% {
-                    opacity: 1;
-                }
-                80% {
-                    opacity: 1;
-                }
-                100% {
-                    transform: translateY(-120vh) rotate(360deg);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
+        });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98feef88b4eea1b0',t:'MTc2MDY5NTA4Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98fef7dc429da1b0',t:'MTc2MDY5NTQyOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
